@@ -1,4 +1,4 @@
-//===-- Cpu0TargetMachine.cpp - Define TargetMachine for Cpu0 -------------===//
+//===-- Rh850TargetMachine.cpp - Define TargetMachine for Rh850 -------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,13 +7,13 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// Implements the info about Cpu0 target spec.
+// Implements the info about Rh850 target spec.
 //
 //===----------------------------------------------------------------------===//
 
 #include "llvm/Support/TargetRegistry.h"
 using namespace llvm;
 
-extern "C" void LLVMInitializeCpu0Target() {
+extern "C" void LLVMInitializeRh850Target() {
 }
 

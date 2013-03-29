@@ -1,4 +1,4 @@
-//===-- Cpu0.td - Describe the Cpu0 Target Machine ---------*- tablegen -*-===//
+//===-- Rh850.td - Describe the Rh850 Target Machine ---------*- tablegen -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -6,7 +6,7 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-// This is the top level entry point for the Cpu0 target.
+// This is the top level entry point for the Rh850 target.
 //===----------------------------------------------------------------------===//
 
 //===----------------------------------------------------------------------===//
@@ -19,13 +19,13 @@ include "llvm/Target/Target.td"
 // Register File, Calling Conv, Instruction Descriptions
 //===----------------------------------------------------------------------===//
 
-include "Cpu0RegisterInfo.td"
-include "Cpu0Schedule.td"
-include "Cpu0InstrInfo.td"
+include "Rh850RegisterInfo.td"
+include "Rh850Schedule.td"
+include "Rh850InstrInfo.td"
 
-def Cpu0InstrInfo : InstrInfo;
+def Rh850InstrInfo : InstrInfo;
 
-def Cpu0 : Target {
-// def Cpu0InstrInfo : InstrInfo as before.
-  let InstructionSet = Cpu0InstrInfo;
+def Rh850 : Target {
+// def Rh850InstrInfo : InstrInfo as before.
+  let InstructionSet = Rh850InstrInfo;
 }

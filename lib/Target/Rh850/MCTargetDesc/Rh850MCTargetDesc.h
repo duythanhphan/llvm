@@ -1,4 +1,4 @@
-//===-- Cpu0MCTargetDesc.h - Cpu0 Target Descriptions -----------*- C++ -*-===//
+//===-- Rh850MCTargetDesc.h - Rh850 Target Descriptions -----------*- C++ -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,31 +7,31 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This file provides Cpu0 specific target descriptions.
+// This file provides Rh850 specific target descriptions.
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef CPU0MCTARGETDESC_H
-#define CPU0MCTARGETDESC_H
+#ifndef RH850MCTARGETDESC_H
+#define RH850MCTARGETDESC_H
 
 namespace llvm {
 class Target;
 
-extern Target TheCpu0Target;
-extern Target TheCpu0elTarget;
+extern Target TheRh850Target;
+extern Target TheRh850elTarget;
 } // End llvm namespace
 
-// Defines symbolic names for Cpu0 registers.  This defines a mapping from
+// Defines symbolic names for Rh850 registers.  This defines a mapping from
 // register name to register number.
 #define GET_REGINFO_ENUM
-#include "Cpu0GenRegisterInfo.inc"
+#include "Rh850GenRegisterInfo.inc"
 
-// Defines symbolic names for the Cpu0 instructions.
+// Defines symbolic names for the Rh850 instructions.
 #define GET_INSTRINFO_ENUM
-#include "Cpu0GenInstrInfo.inc"
+#include "Rh850GenInstrInfo.inc"
 
 #define GET_SUBTARGETINFO_ENUM
-#include "Cpu0GenSubtargetInfo.inc"
+#include "Rh850GenSubtargetInfo.inc"
 #endif
 
 

@@ -1,4 +1,4 @@
-//===- Cpu0InstrInfo.td - Target Description for Cpu0 Target -*- tablegen -*-=//
+//===- Rh850InstrInfo.td - Target Description for Rh850 Target -*- tablegen -*-=//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,7 +7,7 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This file contains the Cpu0 implementation of the TargetInstrInfo class.
+// This file contains the Rh850 implementation of the TargetInstrInfo class.
 //
 //===----------------------------------------------------------------------===//
 
@@ -15,20 +15,20 @@
 // Instruction format superclass
 //===----------------------------------------------------------------------===//
 
-include "Cpu0InstrFormats.td"
+include "Rh850InstrFormats.td"
 
 //===----------------------------------------------------------------------===//
-// Cpu0 profiles and nodes
+// Rh850 profiles and nodes
 //===----------------------------------------------------------------------===//
 
-def SDT_Cpu0Ret          : SDTypeProfile<0, 1, [SDTCisInt<0>]>;
+def SDT_Rh850Ret          : SDTypeProfile<0, 1, [SDTCisInt<0>]>;
 
 // Return
-def Cpu0Ret : SDNode<"Cpu0ISD::Ret", SDT_Cpu0Ret, [SDNPHasChain,
+def Rh850Ret : SDNode<"Rh850ISD::Ret", SDT_Rh850Ret, [SDNPHasChain,
                      SDNPOptInGlue]>;
 
 //===----------------------------------------------------------------------===//
-// Cpu0 Operand, Complex Patterns and Transformations Definitions.
+// Rh850 Operand, Complex Patterns and Transformations Definitions.
 //===----------------------------------------------------------------------===//
 
 // Signed Operand
@@ -47,7 +47,7 @@ def mem : Operand<i32> {
 // e.g. addi, andi
 def immSExt16  : PatLeaf<(imm), [{ return isInt<16>(N->getSExtValue()); }]>;
 
-// Cpu0 Address Mode! SDNode frameindex could possibily be a match
+// Rh850 Address Mode! SDNode frameindex could possibily be a match
 // since load and store instructions from stack used it.
 def addr : ComplexPattern<iPTR, 2, "SelectAddr", [frameindex], [SDNPWantParent]>;
 
@@ -137,7 +137,7 @@ multiclass StoreM32<bits<8> op, string instr_asm, PatFrag OpNode,
 //===----------------------------------------------------------------------===//
 
 //===----------------------------------------------------------------------===//
-// Cpu0I Instructions
+// Rh850I Instructions
 //===----------------------------------------------------------------------===//
 
 /// Load and Store Instructions
@@ -153,7 +153,7 @@ def ADDiu   : ArithLogicI<0x09, "addiu", add, simm16, immSExt16, CPURegs>;
 let isReturn=1, isTerminator=1, hasDelaySlot=1, isCodeGenOnly=1,
     isBarrier=1, hasCtrlDep=1 in
   def RET : FJ <0x2C, (outs), (ins CPURegs:$target),
-                "ret\t$target", [(Cpu0Ret CPURegs:$target)], IIBranch>;
+                "ret\t$target", [(Rh850Ret CPURegs:$target)], IIBranch>;
 
 //===----------------------------------------------------------------------===//
 //  Arbitrary patterns that map to one or more instructions

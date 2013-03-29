@@ -1,4 +1,4 @@
-//===-- Cpu0MCTargetDesc.cpp - Cpu0 Target Descriptions -------------------===//
+//===-- Rh850MCTargetDesc.cpp - Rh850 Target Descriptions -------------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -7,11 +7,11 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This file provides Cpu0 specific target descriptions.
+// This file provides Rh850 specific target descriptions.
 //
 //===----------------------------------------------------------------------===//
 
-#include "Cpu0MCTargetDesc.h"
+#include "Rh850MCTargetDesc.h"
 #include "llvm/MC/MachineLocation.h"
 #include "llvm/MC/MCCodeGenInfo.h"
 #include "llvm/MC/MCInstrInfo.h"
@@ -22,16 +22,16 @@
 #include "llvm/Support/TargetRegistry.h"
 
 #define GET_INSTRINFO_MC_DESC
-#include "Cpu0GenInstrInfo.inc"
+#include "Rh850GenInstrInfo.inc"
 
 #define GET_SUBTARGETINFO_MC_DESC
-#include "Cpu0GenSubtargetInfo.inc"
+#include "Rh850GenSubtargetInfo.inc"
 
 #define GET_REGINFO_MC_DESC
-#include "Cpu0GenRegisterInfo.inc"
+#include "Rh850GenRegisterInfo.inc"
 
 using namespace llvm;
 
 
-extern "C" void LLVMInitializeCpu0TargetMC() {
+extern "C" void LLVMInitializeRh850TargetMC() {
 }

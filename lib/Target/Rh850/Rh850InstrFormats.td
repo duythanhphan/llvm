@@ -1,4 +1,4 @@
-//===-- Cpu0InstrFormats.td - Cpu0 Instruction Formats -----*- tablegen -*-===//
+//===-- Rh850InstrFormats.td - Rh850 Instruction Formats -----*- tablegen -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -8,7 +8,7 @@
 //===----------------------------------------------------------------------===//
 
 //===----------------------------------------------------------------------===//
-//  Describe CPU0 instructions format
+//  Describe RH850 instructions format
 //
 //  CPU INSTRUCTION FORMATS
 //
@@ -33,14 +33,14 @@ def FrmL      : Format<2>;
 def FrmJ      : Format<3>;
 def FrmOther  : Format<4>; // Instruction w/ a custom format
 
-// Generic Cpu0 Format
-class Cpu0Inst<dag outs, dag ins, string asmstr, list<dag> pattern,
+// Generic Rh850 Format
+class Rh850Inst<dag outs, dag ins, string asmstr, list<dag> pattern,
                InstrItinClass itin, Format f>: Instruction
 {
   field bits<32> Inst;
   Format Form = f;
 
-  let Namespace = "Cpu0";
+  let Namespace = "Rh850";
 
   let Size = 4;
 
@@ -57,25 +57,25 @@ class Cpu0Inst<dag outs, dag ins, string asmstr, list<dag> pattern,
   let Itinerary   = itin;
 
   //
-  // Attributes specific to Cpu0 instructions...
+  // Attributes specific to Rh850 instructions...
   //
   bits<4> FormBits = Form.Value;
 
-  // TSFlags layout should be kept in sync with Cpu0InstrInfo.h.
+  // TSFlags layout should be kept in sync with Rh850InstrInfo.h.
   let TSFlags{3-0}   = FormBits;
 
-  let DecoderNamespace = "Cpu0";
+  let DecoderNamespace = "Rh850";
 
   field bits<32> SoftFail = 0;
 }
 
 //===----------------------------------------------------------------------===//
-// Format A instruction class in Cpu0 : <|opcode|ra|rb|rc|cx|>
+// Format A instruction class in Rh850 : <|opcode|ra|rb|rc|cx|>
 //===----------------------------------------------------------------------===//
 
 class FA<bits<8> op, dag outs, dag ins, string asmstr,
          list<dag> pattern, InstrItinClass itin>:
-      Cpu0Inst<outs, ins, asmstr, pattern, itin, FrmA>
+      Rh850Inst<outs, ins, asmstr, pattern, itin, FrmA>
 {
   bits<4>  ra;
   bits<4>  rb;
@@ -91,11 +91,11 @@ class FA<bits<8> op, dag outs, dag ins, string asmstr,
 }
 
 //===----------------------------------------------------------------------===//
-// Format I instruction class in Cpu0 : <|opcode|ra|rb|cx|>
+// Format I instruction class in Rh850 : <|opcode|ra|rb|cx|>
 //===----------------------------------------------------------------------===//
 
 class FL<bits<8> op, dag outs, dag ins, string asmstr, list<dag> pattern,
-         InstrItinClass itin>: Cpu0Inst<outs, ins, asmstr, pattern, itin, FrmL>
+         InstrItinClass itin>: Rh850Inst<outs, ins, asmstr, pattern, itin, FrmL>
 {
   bits<4>  ra;
   bits<4>  rb;
@@ -109,11 +109,11 @@ class FL<bits<8> op, dag outs, dag ins, string asmstr, list<dag> pattern,
 }
 
 //===----------------------------------------------------------------------===//
-// Format J instruction class in Cpu0 : <|opcode|address|>
+// Format J instruction class in Rh850 : <|opcode|address|>
 //===----------------------------------------------------------------------===//
 
 class FJ<bits<8> op, dag outs, dag ins, string asmstr, list<dag> pattern,
-         InstrItinClass itin>: Cpu0Inst<outs, ins, asmstr, pattern, itin, FrmJ>
+         InstrItinClass itin>: Rh850Inst<outs, ins, asmstr, pattern, itin, FrmJ>
 {
   bits<24> addr;
 

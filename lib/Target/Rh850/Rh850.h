@@ -1,4 +1,4 @@
-//===-- Cpu0.h - Top-level interface for Cpu0 representation ----*- C++ -*-===//
+//===-- Rh850.h - Top-level interface for Rh850 representation ----*- C++ -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -8,21 +8,21 @@
 //===----------------------------------------------------------------------===//
 //
 // This file contains the entry points for global functions defined in
-// the LLVM Cpu0 back-end.
+// the LLVM Rh850 back-end.
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef TARGET_CPU0_H
-#define TARGET_CPU0_H
+#ifndef TARGET_RH850_H
+#define TARGET_RH850_H
 
-#include "MCTargetDesc/Cpu0MCTargetDesc.h"
+#include "MCTargetDesc/Rh850MCTargetDesc.h"
 #include "llvm/Target/TargetMachine.h"
 
 namespace llvm {
-  class Cpu0TargetMachine;
+  class Rh850TargetMachine;
   class FunctionPass;
 
-  FunctionPass *createCpu0ISelDag(Cpu0TargetMachine &TM);
+  FunctionPass *createRh850ISelDag(Rh850TargetMachine &TM);
 
 } // end namespace llvm;
 
