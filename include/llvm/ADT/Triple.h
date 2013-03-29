@@ -16,7 +16,7 @@
 // this file.  Undefine them here.
 #undef mips
 #undef sparc
-#undef cpu0
+#undef rh850
 
 namespace llvm {
 
@@ -45,10 +45,10 @@ public:
     UnknownArch,
 
     arm,     // ARM; arm, armv.*, xscale
-    cpu0,
-    cpu0el,
-    cpu064,
-    cpu064el,
+    rh850,
+    rh850el,
+    rh85064,
+    rh85064el,
     aarch64, // AArch64: aarch64
     hexagon, // Hexagon: hexagon
     mips,    // MIPS: mips, mipsallegrex
