@@ -28,8 +28,9 @@ namespace {
       if (std::getenv("bar") != (char*) -1)
         return;
 
-      llvm::linkOcamlGCPrinter();
-      llvm::linkErlangGCPrinter();
+      // Comment Ocaml and Erlang to avoid linking error
+      //llvm::linkOcamlGCPrinter();
+      //llvm::linkErlangGCPrinter();
 
     }
   } ForceAsmWriterLinking; // Force link by creating a global definition.

@@ -288,6 +288,7 @@ enum {
   EM_VIDEOCORE5    = 198, // Broadcom VideoCore V processor
   EM_78KOR         = 199, // Renesas 78KOR family
   EM_56800EX       = 200, // Freescale 56800EX Digital Signal Controller (DSC)
+  EM_CPU0          = 201, // Document Write An LLVM Backend Tutorial For Cpu0
   EM_MBLAZE        = 47787 // Xilinx MicroBlaze
 };
 
@@ -823,6 +824,80 @@ enum {
 // Special values for the st_other field in the symbol table entry for MIPS.
 enum {
   STO_MIPS_MICROMIPS       = 0x80 // MIPS Specific ISA for MicroMips
+};
+
+// Cpu0 Specific e_flags
+enum {
+  EF_CPU0_NOREORDER = 0x00000001, // Don't reorder instructions
+  EF_CPU0_PIC       = 0x00000002, // Position independent code
+  EF_CPU0_CPIC      = 0x00000004, // Call object with Position independent code
+  EF_CPU0_ARCH_1    = 0x00000000, // CPU01 instruction set
+  EF_CPU0_ARCH_2    = 0x10000000, // CPU02 instruction set
+  EF_CPU0_ARCH_3    = 0x20000000, // CPU03 instruction set
+  EF_CPU0_ARCH_4    = 0x30000000, // CPU04 instruction set
+  EF_CPU0_ARCH_5    = 0x40000000, // CPU05 instruction set
+  EF_CPU0_ARCH_32   = 0x50000000, // CPU032 instruction set per linux not elf.h
+  EF_CPU0_ARCH_64   = 0x60000000, // CPU064 instruction set per linux not elf.h
+  EF_CPU0_ARCH_32R2 = 0x70000000, // cpu032r2
+  EF_CPU0_ARCH_64R2 = 0x80000000, // cpu064r2
+  EF_CPU0_ARCH      = 0xf0000000  // Mask for applying EF_CPU0_ARCH_ variant
+};
+
+// ELF Relocation types for Cpu0
+// .
+enum {
+  R_CPU0_NONE              =  0,
+  R_CPU0_16                =  1,
+  R_CPU0_32                =  2,
+  R_CPU0_REL32             =  3,
+  R_CPU0_24                =  4,
+  R_CPU0_HI16              =  5,
+  R_CPU0_LO16              =  6,
+  R_CPU0_GPREL16           =  7,
+  R_CPU0_LITERAL           =  8,
+  R_CPU0_GOT16             =  9,
+  R_CPU0_PC24              = 10,
+  R_CPU0_CALL24            = 11,
+  R_CPU0_GPREL32           = 12,
+  R_CPU0_SHIFT5            = 16,
+  R_CPU0_SHIFT6            = 17,
+  R_CPU0_64                = 18,
+  R_CPU0_GOT_DISP          = 19,
+  R_CPU0_GOT_PAGE          = 20,
+  R_CPU0_GOT_OFST          = 21,
+  R_CPU0_GOT_HI16          = 22,
+  R_CPU0_GOT_LO16          = 23,
+  R_CPU0_SUB               = 24,
+  R_CPU0_INSERT_A          = 25,
+  R_CPU0_INSERT_B          = 26,
+  R_CPU0_DELETE            = 27,
+  R_CPU0_HIGHER            = 28,
+  R_CPU0_HIGHEST           = 29,
+  R_CPU0_CALL_HI16         = 30,
+  R_CPU0_CALL_LO16         = 31,
+  R_CPU0_SCN_DISP          = 32,
+  R_CPU0_REL16             = 33,
+  R_CPU0_ADD_IMMEDIATE     = 34,
+  R_CPU0_PJUMP             = 35,
+  R_CPU0_RELGOT            = 36,
+  R_CPU0_JALR              = 37,
+  R_CPU0_TLS_DTPMOD32      = 38,
+  R_CPU0_TLS_DTPREL32      = 39,
+  R_CPU0_TLS_DTPMOD64      = 40,
+  R_CPU0_TLS_DTPREL64      = 41,
+  R_CPU0_TLS_GD            = 42,
+  R_CPU0_TLS_LDM           = 43,
+  R_CPU0_TLS_DTPREL_HI16   = 44,
+  R_CPU0_TLS_DTPREL_LO16   = 45,
+  R_CPU0_TLS_GOTTPREL      = 46,
+  R_CPU0_TLS_TPREL32       = 47,
+  R_CPU0_TLS_TPREL64       = 48,
+  R_CPU0_TLS_TPREL_HI16    = 49,
+  R_CPU0_TLS_TPREL_LO16    = 50,
+  R_CPU0_GLOB_DAT          = 51,
+  R_CPU0_COPY              = 126,
+  R_CPU0_JUMP_SLOT         = 127,
+  R_CPU0_NUM               = 218
 };
 
 // Hexagon Specific e_flags
