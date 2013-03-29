@@ -12,12 +12,9 @@
 #include "llvm/Support/TargetRegistry.h"
 using namespace llvm;
 
-Target llvm::TheRh850Target, llvm::TheRh850elTarget;
+Target llvm::TheRh850Target;
 
 extern "C" void LLVMInitializeRh850TargetInfo() {
   RegisterTarget<Triple::rh850,
         /*HasJIT=*/true> X(TheRh850Target, "rh850", "Rh850");
-
-  RegisterTarget<Triple::rh850el,
-        /*HasJIT=*/true> Y(TheRh850elTarget, "rh850el", "Rh850el");
 }

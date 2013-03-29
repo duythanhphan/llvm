@@ -46,9 +46,6 @@ public:
 
     arm,     // ARM; arm, armv.*, xscale
     rh850,
-    rh850el,
-    rh85064,
-    rh85064el,
     aarch64, // AArch64: aarch64
     hexagon, // Hexagon: hexagon
     mips,    // MIPS: mips, mipsallegrex

@@ -18,7 +18,6 @@ namespace llvm {
 class Target;
 
 extern Target TheRh850Target;
-extern Target TheRh850elTarget;
 } // End llvm namespace
 
 // Defines symbolic names for Rh850 registers.  This defines a mapping from

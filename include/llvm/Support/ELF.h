@@ -839,7 +839,6 @@ enum {
   EF_RH850_ARCH_32   = 0x50000000, // RH85032 instruction set per linux not elf.h
   EF_RH850_ARCH_64   = 0x60000000, // RH85064 instruction set per linux not elf.h
   EF_RH850_ARCH_32R2 = 0x70000000, // rh85032r2
-  EF_RH850_ARCH_64R2 = 0x80000000, // rh85064r2
   EF_RH850_ARCH      = 0xf0000000  // Mask for applying EF_RH850_ARCH_ variant
 };
 
